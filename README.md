@@ -2,6 +2,9 @@
 
 Chat client built using Ruby, Opal, and the Volt framework.
 
+## Demo Site
+http://dougchat.herokuapp.com/
+
 ## Installation
 
 1. install mongodb30 with homebrew
