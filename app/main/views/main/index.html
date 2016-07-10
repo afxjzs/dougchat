@@ -1,18 +1,24 @@
 <:Title>
-  Home
+  dougchat
 
 <:Body>
-  <div class="container">
     <h1>Say sumn...</h1>
-    <ul class="chats-list">
-      {{ _chats.each do |chat| }}
-        <li>{{ chat._chat }} - <small>{{ chat._created_at }}</small></li>
+    <div class="chats-list">
+      {{ latest_chats.each do |chat| }}
+      <div class="chat row {{ if chat.user_id == Volt.current_user.id.value }}my-chat{{ end}}">
+            <div class="chat-body col-sm-8">{{ chat._body }}</div>
+            <div class="chat-author col-sm-4">{{ chat.user.name }} @ {{ rdatetime chat._created_at }}</div>
+      </div>
       {{ end }}
-    </ul>
+    </div>
+  {{ if Volt.current_user }}
     <div class="chat-form">
-      <form e-submit="add_chat" role="form">
-        <input type="text" value="{{ page._new_chat }}" class="form-control">
+      <form e-submit="submit_chat" role="form">
+        <input type="text" value="{{ page._new_chat }}" class="form-control" placeholder="What's on your mind?">
       </form>
     </div>
-  </div>
+  {{ else }}
+    Please <a href="/login" title="Login">Login</a>
+  {{ end }}
+
 

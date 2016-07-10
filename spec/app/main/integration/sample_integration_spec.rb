@@ -6,6 +6,6 @@ describe 'sample integration test', type: :feature do
   it 'should load the page' do
     visit '/'
 
-    expect(page).to have_content('Home')
+    expect(page).to have_content('dougchat')
   end
 end

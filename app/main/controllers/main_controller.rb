@@ -4,20 +4,36 @@ module Main
     model :store
 
     def index
-      # Add code for when the index view is loaded
     end
 
     def about
-      # Add code for when the about view is loaded
     end
 
-
-    def add_chat
-      _chats << { chat: page._new_chat, created_at: Time.now }
-      page._new_chat = ''
-    end
 
     private
+
+    def submit_chat
+      store._chats
+        .create(body: page._new_chat, created_at: Time.now)
+        .then{ page._new_chat = '' }
+        .fail{ |err| add_error err}
+    end
+
+    def latest_chats
+      store._chats
+        .limit(20)
+        .order({created_at: 1})
+    end
+
+    def rdatetime(date)
+      if date.present?
+        date.strftime("%B %d, %Y %l:%M%P")
+      end
+    end
+
+    def add_error(err)
+      err.each{|k,v| flash_errors.create("#{k}: #{v.join('.')}")}
+    end
 
     # The main template contains a #template binding that shows another
     # template.  This is the path to that template.  It may change based

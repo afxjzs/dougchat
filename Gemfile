@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.3.1"
+
 gem 'volt', '0.9.6'
 
 # volt uses mongo as the default data store.
@@ -10,7 +12,7 @@ gem 'volt-mongo', '~> 0.1.0'
 gem 'volt-bootstrap', '~> 0.1.0'
 
 # Simple theme for bootstrap, remove to theme yourself.
-gem 'volt-bootstrap_jumbotron_theme', '~> 0.1.0'
+# gem 'volt-bootstrap_flat_theme', '~> 0.1.0'
 
 # User templates for login, signup, and logout menu.
 gem 'volt-user_templates', '~> 0.4.0'
