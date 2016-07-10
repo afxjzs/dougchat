@@ -1,0 +1,18 @@
+<:Title>
+  Home
+
+<:Body>
+  <div class="container">
+    <h1>Say sumn...</h1>
+    <ul class="chats-list">
+      {{ _chats.each do |chat| }}
+        <li>{{ chat._chat }} - <small>{{ chat._created_at }}</small></li>
+      {{ end }}
+    </ul>
+    <div class="chat-form">
+      <form e-submit="add_chat" role="form">
+        <input type="text" value="{{ page._new_chat }}" class="form-control">
+      </form>
+    </div>
+  </div>
+
