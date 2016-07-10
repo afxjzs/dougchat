@@ -1,4 +1,6 @@
-# Place your app's docs here.
+# dougchat
 
-## New to Volt?
-Be sure to read the volt docs at http://voltframework.com/docs
+Chat client built using Ruby, Opal, and the Volt framework.
+
+## Volt?
+Read the volt docs at http://voltframework.com/docs
